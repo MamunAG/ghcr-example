@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,6 +21,8 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
+app.MapGet("/", () => "Welcome").WithName("Welcome");
+
 app.MapGet("/test", () =>
 {
     var forecast = Enumerable.Range(1, 5).Select(index =>
@@ -32,6 +36,13 @@ app.MapGet("/test", () =>
     return forecast;
 })
 .WithName("Test");
+
+app.MapGet("/health", () =>
+{
+    return "The app health is ok.";
+})
+.WithName("Health");
+
 
 app.MapGet("/weatherforecast", () =>
 {
