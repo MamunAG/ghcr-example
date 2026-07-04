@@ -21,7 +21,7 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/", () => "Welcome").WithName("Welcome");
+app.MapGet("/", () => "Welcome to app-version:2").WithName("Welcome");
 
 app.MapGet("/test", () =>
 {
